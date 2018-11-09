@@ -52,7 +52,7 @@ export default class DropDown extends React.Component {
                 <input type="checkbox" name="checkbox" id="direct_flights"/>direct flights only <br></br>
                 <button onClick={this.action}>Search!</button>
                 
-            </>
+            </div>
         )
     }
 }
