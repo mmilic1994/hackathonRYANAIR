@@ -8,29 +8,41 @@ export default class DropDown extends React.Component {
         super(props);
 
         this.state = {
-            selection: 0
+            origin: "",
+            destination: ""
         };
+    }
+
+    selectedOrigin = (e) => {
+        this.setState({
+            origin: e.target.value
+        })
+    }
+
+    selectedDestination = (e) => {
+        this.setState({
+            destination: e.target.value
+        })
     }
 
     render() {
         return (
             <>
                 <p>Departure City</p>
-                <select className="origins">
+                <select value={this.state.origin} onChange={this.selectedOrigin} className="origins">
                     { origins.map((origin, i)  => 
-                        <option key={i}>{origin}</option>
+                        <option value={origin} key={i}>{origin}</option>
                     )
                     }   
 
                 </select>
                 <p>Destination City</p>
-                <select className="destinations">
+                <select value={this.state.destination} onChange={this.selectedDestination} className="destinations">
                     { destinations.map((destination, i) =>
                         <option key={i}>{destination}</option>
                     )
                     }  
                 </select>
-                <button>Submit</button>
             </>
         )
     }

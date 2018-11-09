@@ -16,7 +16,7 @@ export default class FlightList extends React.Component {
 
   componentDidMount() {
     this.setState({isLoading: true})
-    fetch('https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1')
+    fetch(`https://api.skypicker.com/flights?flyFrom=${this.props.origin}&to=${this.props.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1`)
       .then(resp => resp.json())
       .then(json => {
         this.setState({
@@ -55,7 +55,6 @@ export default class FlightList extends React.Component {
           originCity = {flight.cityFrom}
           destinationCity = {flight.cityTo}
           flightPrice = {flight.price}
-          
           />
         )}
 
