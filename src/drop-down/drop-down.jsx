@@ -15,6 +15,7 @@ export default class DropDown extends React.Component {
     render() {
         return (
             <>
+                <p>Departure City</p>
                 <select className="origins">
                     { origins.map((origin, i)  => 
                         <option key={i}>{origin}</option>
@@ -22,12 +23,14 @@ export default class DropDown extends React.Component {
                     }   
 
                 </select>
+                <p>Destination City</p>
                 <select className="destinations">
                     { destinations.map((destination, i) =>
                         <option key={i}>{destination}</option>
                     )
                     }  
                 </select>
+                <button>Submit</button>
             </>
         )
     }
