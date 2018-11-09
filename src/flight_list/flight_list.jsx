@@ -13,17 +13,21 @@ export default class FlightList extends React.Component {
     }
 
   }
+  
 
-  componentDidMount() {
-    this.setState({isLoading: true})
-    fetch(`https://api.skypicker.com/flights?flyFrom=${this.props.origin}&to=${this.props.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1`)
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          flights: json.data,
-          isLoading: false
+  selectedRoute = (data) => {
+    if(data) 
+    {
+      this.setState({isLoading: true})
+      fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1`)
+        .then(resp => resp.json())
+        .then(json => {
+          this.setState({
+            flights: json.data,
+            isLoading: false
+          });
         });
-      });
+      }
       
   }
   
@@ -37,7 +41,7 @@ export default class FlightList extends React.Component {
     }
     return (
       <>
-       <DropDown />
+       <DropDown action={this.selectedRoute} />
        <div className="flight_list">
        <div className="flight-item">
         <div className="flight-prop col-name">Departure time</div>

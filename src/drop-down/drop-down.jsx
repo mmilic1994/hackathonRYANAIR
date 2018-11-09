@@ -8,20 +8,19 @@ export default class DropDown extends React.Component {
         super(props);
 
         this.state = {
-            origin: "",
-            destination: ""
+            origin: "Prague",
+            destination: "London"
         };
     }
 
-    selectedOrigin = (e) => {
-        this.setState({
-            origin: e.target.value
-        })
-    }
+    action = (e) => {
+        console.log("origin:" + document.getElementById('origin').value)
+        console.log("destination:" + document.getElementById('destination').value)
+        
 
-    selectedDestination = (e) => {
-        this.setState({
-            destination: e.target.value
+        this.props.action({
+            origin: document.getElementById('origin').value,
+            destination: document.getElementById('destination').value
         })
     }
 
@@ -29,7 +28,7 @@ export default class DropDown extends React.Component {
         return (
             <>
                 <p>Departure City</p>
-                <select value={this.state.origin} onChange={this.selectedOrigin} className="origins">
+                <select id="origin" className="origins">
                     { origins.map((origin, i)  => 
                         <option value={origin} key={i}>{origin}</option>
                     )
@@ -37,12 +36,14 @@ export default class DropDown extends React.Component {
 
                 </select>
                 <p>Destination City</p>
-                <select value={this.state.destination} onChange={this.selectedDestination} className="destinations">
+                <select id="destination">
                     { destinations.map((destination, i) =>
                         <option key={i}>{destination}</option>
                     )
                     }  
                 </select>
+                <br />
+                <button onClick={this.action}>Search connections!</button>
             </>
         )
     }
