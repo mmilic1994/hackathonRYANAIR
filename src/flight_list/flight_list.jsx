@@ -31,6 +31,7 @@ export default class FlightList extends React.Component {
             destination: data.destination,
             isLoading: false,
             searched: "small"
+            
           });
         });
     }
@@ -76,7 +77,7 @@ export default class FlightList extends React.Component {
           <div className="title">
             <h1>SkyScammer</h1>
           </div>
-          <DropDown action={this.selectedRoute} />
+          <DropDown action={this.selectedRoute} showMore={this.showMore} />
         </header>
         <h3>Displaying flights from {this.state.origin} to {this.state.destination}</h3>
 
@@ -90,7 +91,7 @@ export default class FlightList extends React.Component {
             <div className="flight-prop col-name">Stopovers</div>
 
           </div>
-          {this.state.flights.map(
+          {this.state.flights.slice(0, this.state.flightsNumber).map(
             flight => <FlightItem
               departureTime={
                 DateTime.fromMillis(flight.dTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
