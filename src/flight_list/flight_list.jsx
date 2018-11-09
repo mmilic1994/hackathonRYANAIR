@@ -1,5 +1,6 @@
 import React from 'react';
 import FlightItem from '../flight_item/flight_item.jsx';
+import {DateTime} from 'luxon';
 
 export default class FlightList extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class FlightList extends React.Component {
       .then(resp => resp.json())
       .then(json => {
         this.setState({
-          flights: json.data[0]
+          flights: json.data
         });
       });
       
@@ -31,11 +32,14 @@ export default class FlightList extends React.Component {
        {console.log(this.state.flights)}
        { this.state.flights.map(
          flight => <FlightItem
-         departureTime = {flight.dTime}
-         arrivalTime = {flight.aTime}
-        // originCity = {flight.cityFrom}
-        // destinationCity = {flight.cityTo}
-        // flightPrice = {flight.price}
+         departureTime = {
+           DateTime.fromMillis(flight.dTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
+        //  arrivalTime = 
+
+        //  {flight.aTime}
+        originCity = {flight.cityFrom}
+        destinationCity = {flight.cityTo}
+        flightPrice = {flight.price}
         />
        )}
 
