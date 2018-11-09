@@ -9,7 +9,8 @@ export default class FlightList extends React.Component {
 
     this.state = {
       flights: [],
-      isLoading: false
+      isLoading: false,
+      searched: "big"
     }
 
   }
@@ -24,7 +25,8 @@ export default class FlightList extends React.Component {
         .then(json => {
           this.setState({
             flights: json.data,
-            isLoading: false
+            isLoading: false,
+            searched: "small"
           });
         });
       }
@@ -41,7 +43,7 @@ export default class FlightList extends React.Component {
     }
     return (
       <>
-        <header>
+        <header className={this.state.searched}>
           <div className="title">
             <h1>SkyScammer</h1>
           </div>
@@ -66,7 +68,7 @@ export default class FlightList extends React.Component {
             DateTime.fromMillis(flight.aTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
           originCity = {flight.cityFrom}
           destinationCity = {flight.cityTo}
-          flightPrice = {flight.price}
+          flightPrice = {flight.price * 1000}
           stopOvers = {flight.route.length -1}
           />
         )}
