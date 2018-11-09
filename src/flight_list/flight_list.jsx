@@ -1,7 +1,7 @@
 import React from 'react';
 import FlightItem from '../flight_item/flight_item.jsx';
 import DropDown from '../drop-down/drop-down.jsx';
-import {DateTime} from 'luxon';
+import { DateTime } from 'luxon';
 
 export default class FlightList extends React.Component {
   constructor(props) {
@@ -14,12 +14,11 @@ export default class FlightList extends React.Component {
     }
 
   }
-  
+
 
   selectedRoute = (data) => {
-    if(data) 
-    {
-      this.setState({isLoading: true})
+    if (data) {
+      this.setState({ isLoading: true })
       fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=${data.direct}`)
         .then(resp => resp.json())
         .then(json => {
@@ -29,30 +28,37 @@ export default class FlightList extends React.Component {
             searched: "small"
           });
         });
-      }
-      
+    }
+
   }
-  
+
   render() {
     if (this.state.isLoading == true) {
       return (
         <>
-       <DropDown />
-       <div className="flight_list">
-        <div className="flight-item">
-          <div className="flight-prop col-name">Departure time</div>
-          <div className="flight-prop col-name">Arrival time</div>
-          <div className="flight-prop col-name">Origin city</div>
-          <div className="flight-prop col-name">Destination city</div>
-          <div className="flight-prop col-name">Price</div>
-          <div className="flight-prop col-name">Stopovers</div>
+          <header className={this.state.searched}>
+            <div className="title">
+              <h1>SkyScammer</h1>
+            </div>
+            <DropDown />
+          </header>
 
-        </div>
-        <div className="spinner-container">
-          <img className="loading-spinner" src="https://www.flightcomp.de/wp-content/plugins/gravityforms/images/spinner.gif" />
-        </div>
-      </div>
-      </>
+          <div className="flight_list">
+            <div className="flight-item">
+              <div className="flight-prop col-name">Departure time</div>
+              <div className="flight-prop col-name">Arrival time</div>
+              <div className="flight-prop col-name">Origin city</div>
+              <div className="flight-prop col-name">Destination city</div>
+              <div className="flight-prop col-name">Price</div>
+              <div className="flight-prop col-name">Stopovers</div>
+
+            </div>
+            <div className="spinner-container">
+              <img className="loading-spinner" src="https://www.flightcomp.de/wp-content/plugins/gravityforms/images/spinner.gif" />
+              Hold tight, fetching flights...
+            </div>
+          </div>
+        </>
       );
     }
     return (
@@ -64,30 +70,30 @@ export default class FlightList extends React.Component {
           <DropDown action={this.selectedRoute} />
         </header>
 
-       <div className="flight_list">
-       <div className="flight-item">
-        <div className="flight-prop col-name">Departure time</div>
-        <div className="flight-prop col-name">Arrival time</div>
-        <div className="flight-prop col-name">Origin city</div>
-        <div className="flight-prop col-name">Destination city</div>
-        <div className="flight-prop col-name">Price</div>
-        <div className="flight-prop col-name">Stopovers</div>
+        <div className="flight_list">
+          <div className="flight-item">
+            <div className="flight-prop col-name">Departure time</div>
+            <div className="flight-prop col-name">Arrival time</div>
+            <div className="flight-prop col-name">Origin city</div>
+            <div className="flight-prop col-name">Destination city</div>
+            <div className="flight-prop col-name">Price</div>
+            <div className="flight-prop col-name">Stopovers</div>
 
-      </div>
-        { this.state.flights.map(
-          flight => <FlightItem
-          departureTime = {
-            DateTime.fromMillis(flight.dTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
-          arrivalTime = {
-            DateTime.fromMillis(flight.aTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
-          originCity = {flight.cityFrom}
-          destinationCity = {flight.cityTo}
-          flightPrice = {flight.price * 1000}
-          stopOvers = {flight.route.length -1}
-          />
-        )}
+          </div>
+          {this.state.flights.map(
+            flight => <FlightItem
+              departureTime={
+                DateTime.fromMillis(flight.dTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
+              arrivalTime={
+                DateTime.fromMillis(flight.aTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
+              originCity={flight.cityFrom}
+              destinationCity={flight.cityTo}
+              flightPrice={flight.price * 1000}
+              stopOvers={flight.route.length - 1}
+            />
+          )}
 
-       </div>
+        </div>
       </>
     )
   }

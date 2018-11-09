@@ -78,12 +78,16 @@ select {
 
 .spinner-container {
   display: flex;
+  flex-direction: column;
   position: absolute;
-  left: 0;
-  top: 0;
-  background-color: rgba(255,255,255,.5);
-  width: 100vw;
-  height: 100vh;
+  left: 25vw;
+  top: 25vh;
+  background-color: white;
+  opacity: .9;
+  width: 50vw;
+  height: 50vh;
+  border: 1px solid black;
+  border-radius: 5em;
   justify-content: center;
   align-items: center;
 }
