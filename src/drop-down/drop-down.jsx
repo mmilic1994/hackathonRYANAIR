@@ -16,10 +16,13 @@ export default class DropDown extends React.Component {
     action = (e) => {
         console.log("origin:" + document.getElementById('origin').value)
         console.log("destination:" + document.getElementById('destination').value)
+        console.log("checkbox:" + document.getElementById('direct_only').checked)
+
         
         this.props.action({
             origin: document.getElementById('origin').value,
             destination: document.getElementById('destination').value
+            
         })
     }
 
@@ -42,7 +45,8 @@ export default class DropDown extends React.Component {
                     }  
                 </select>
                 <br />
-                <button onClick={this.action}>Search connections!</button>
+                <button onClick={this.action}>Search connections!</button><br />
+                <input type="checkbox" name="direct" id="direct_only"/>Direct only
 
             </>
         )
