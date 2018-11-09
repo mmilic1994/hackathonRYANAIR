@@ -1,7 +1,7 @@
 import React from 'react';
 import { timingSafeEqual } from 'crypto';
 
-const destinations = ['Valencia', 'Barcelona', 'Madrid', 'Milan', 'Athens'];
+const destinations = ['Valencia', 'Barcelona', 'Madrid', 'Milan', 'Athens',  'Helsinki', 'Kittila', 'Stockholm'];
 const origins = ['Prague', 'Berlin', 'Warsaw', 'Pardubice'];
 
 
@@ -23,16 +23,17 @@ export default class DropDown extends React.Component {
         console.log("destination:" + document.getElementById('destination').value)
         console.log(document.getElementById('direct_flights').checked);
 
+        
         this.props.action({
             origin: document.getElementById('origin').value,
             destination: document.getElementById('destination').value,
-            direct: (document.getElementById('direct_flights').checked ? 1 : 0)  
+            direct: (document.getElementById('direct_flights').checked ? 1 : 0),
         });
     }
 
     render() {
         return (
-            <>
+            <div className="search">
                 <p>Departure City</p>
                 <select id="origin" className="origins">
                     { origins.map((origin, i)  => 
@@ -50,10 +51,10 @@ export default class DropDown extends React.Component {
                 </select>
                 <br /> 
                 <input type="checkbox" name="checkbox" id="direct_flights"/>direct flights only <br></br>
-                <button onClick={this.action}>Search connections!</button> <br></br>
                 <button onClick={ this.props.showMore}>Show more</button>
+                <button onClick={this.action}>Search!</button>
                 
-            </>
+            </div>
         )
     }
 }
