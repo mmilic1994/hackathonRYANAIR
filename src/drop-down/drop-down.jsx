@@ -17,7 +17,6 @@ export default class DropDown extends React.Component {
         console.log("origin:" + document.getElementById('origin').value)
         console.log("destination:" + document.getElementById('destination').value)
         
-
         this.props.action({
             origin: document.getElementById('origin').value,
             destination: document.getElementById('destination').value
@@ -44,6 +43,7 @@ export default class DropDown extends React.Component {
                 </select>
                 <br />
                 <button onClick={this.action}>Search connections!</button>
+
             </>
         )
     }

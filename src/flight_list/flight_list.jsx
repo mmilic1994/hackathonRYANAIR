@@ -19,7 +19,7 @@ export default class FlightList extends React.Component {
     if(data) 
     {
       this.setState({isLoading: true})
-      fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1`)
+      fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=0`)
         .then(resp => resp.json())
         .then(json => {
           this.setState({
@@ -49,6 +49,8 @@ export default class FlightList extends React.Component {
         <div className="flight-prop col-name">Origin city</div>
         <div className="flight-prop col-name">Destination city</div>
         <div className="flight-prop col-name">Price</div>
+        <div className="flight-prop col-name">Stopovers</div>
+
       </div>
         { this.state.flights.map(
           flight => <FlightItem
@@ -59,6 +61,7 @@ export default class FlightList extends React.Component {
           originCity = {flight.cityFrom}
           destinationCity = {flight.cityTo}
           flightPrice = {flight.price}
+          stopOvers = {flight.route.length -1}
           />
         )}
 
