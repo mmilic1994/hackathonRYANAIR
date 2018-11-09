@@ -26,7 +26,7 @@ export default class DropDown extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="search">
                 <p>Departure City</p>
                 <select id="origin" className="origins">
                     { origins.map((origin, i)  => 
@@ -43,8 +43,8 @@ export default class DropDown extends React.Component {
                     }  
                 </select>
                 <br />
-                <button onClick={this.action}>Search connections!</button>
-            </>
+                <button onClick={this.action}>Search!</button>
+            </div>
         )
     }
 }

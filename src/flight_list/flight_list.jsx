@@ -41,7 +41,13 @@ export default class FlightList extends React.Component {
     }
     return (
       <>
-       <DropDown action={this.selectedRoute} />
+        <header>
+          <div className="title">
+            <h1>SkyScammer</h1>
+          </div>
+          <DropDown action={this.selectedRoute} />
+        </header>
+
        <div className="flight_list">
        <div className="flight-item">
         <div className="flight-prop col-name">Departure time</div>
