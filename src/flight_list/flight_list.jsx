@@ -19,7 +19,7 @@ export default class FlightList extends React.Component {
     if(data) 
     {
       this.setState({isLoading: true})
-      fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=0`)
+      fetch(`https://api.skypicker.com/flights?flyFrom=${data.origin}&to=${data.destination}&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=${data.direct}`)
         .then(resp => resp.json())
         .then(json => {
           this.setState({
