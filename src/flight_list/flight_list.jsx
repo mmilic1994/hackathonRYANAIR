@@ -8,24 +8,33 @@ export default class FlightList extends React.Component {
     super(props);
 
     this.state = {
-      flights: []
+      flights: [],
+      isLoading: false
     }
 
   }
 
   componentDidMount() {
+    this.setState({isLoading: true})
     fetch('https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=16/11/2018&dateTo=19/11/2018&partner=picky&direct_flights=1')
       .then(resp => resp.json())
       .then(json => {
         this.setState({
-          flights: json.data
+          flights: json.data,
+          isLoading: false
         });
       });
       
   }
   
   render() {
-    
+    if (this.state.isLoading == true) {
+      return (
+        <div className="spinner-container">
+          <img className="loading-spinner" src="https://www.flightcomp.de/wp-content/plugins/gravityforms/images/spinner.gif" />
+        </div>
+      );
+    }
     return (
       <>
        <DropDown />
