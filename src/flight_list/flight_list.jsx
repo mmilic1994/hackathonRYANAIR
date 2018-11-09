@@ -33,9 +33,9 @@ export default class FlightList extends React.Component {
          flight => <FlightItem
          departureTime = {flight.dTime}
          arrivalTime = {flight.aTime}
-        originCity = {flight.cityFrom}
-        destinationCity = {flight.cityTo}
-        flightPrice = {flight.price}
+        // originCity = {flight.cityFrom}
+        // destinationCity = {flight.cityTo}
+        // flightPrice = {flight.price}
         />
        )}
 
