@@ -28,7 +28,11 @@ export default class FlightList extends React.Component {
   
   render() {
     if (this.state.isLoading == true) {
-      return ("loading...")
+      return (
+        <div className="spinner-container">
+          <img className="loading-spinner" src="https://www.flightcomp.de/wp-content/plugins/gravityforms/images/spinner.gif" />
+        </div>
+      );
     }
     return (
       <>
