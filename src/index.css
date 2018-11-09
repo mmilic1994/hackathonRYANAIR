@@ -15,9 +15,21 @@ h1 {
   font-family: 'Indie Flower', cursive;
 }
 
-header {
+
+.small {
   width: 100%;
   height: 60vh;
+  background-image: url('./img/sky.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.big {
+  width: 100%;
+  height: 100vh;
   background-image: url('./img/sky.jpg');
   background-size: cover;
   display: flex;

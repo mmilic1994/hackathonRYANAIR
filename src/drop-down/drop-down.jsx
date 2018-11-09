@@ -11,7 +11,7 @@ export default class DropDown extends React.Component {
         this.state = {
             origin: "Prague",
             destination: "London",
-            direct : 0
+            direct : 0,
         };
     }
 
@@ -24,7 +24,7 @@ export default class DropDown extends React.Component {
         this.props.action({
             origin: document.getElementById('origin').value,
             destination: document.getElementById('destination').value,
-            direct: (document.getElementById('direct_flights').checked ? 1 : 0)  
+            direct: (document.getElementById('direct_flights').checked ? 1 : 0),
         });
     }
 
@@ -52,7 +52,7 @@ export default class DropDown extends React.Component {
                 <input type="checkbox" name="checkbox" id="direct_flights"/>direct flights only <br></br>
                 <button onClick={this.action}>Search!</button>
                 
-            </>
+            </div>
         )
     }
 }
