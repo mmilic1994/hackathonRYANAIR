@@ -39,8 +39,13 @@ export default class FlightList extends React.Component {
       <>
        <DropDown />
        <div className="flight_list">
-        <div className="flight">
-        {console.log(this.state.flights)}
+       <div className="flight-item">
+        <div className="flight-prop col-name">Departure time</div>
+        <div className="flight-prop col-name">Arrival time</div>
+        <div className="flight-prop col-name">Origin city</div>
+        <div className="flight-prop col-name">Destination city</div>
+        <div className="flight-prop col-name">Price</div>
+      </div>
         { this.state.flights.map(
           flight => <FlightItem
           departureTime = {
@@ -53,7 +58,6 @@ export default class FlightList extends React.Component {
           />
         )}
 
-        </div>
        </div>
       </>
     )

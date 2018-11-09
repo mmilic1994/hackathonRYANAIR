@@ -6,12 +6,12 @@ export default class FlightItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>{this.props.departureTime}</p>
-        <p>{this.props.arrivalTime}</p>
-        <p>{this.props.originCity}</p>
-        <p>{this.props.destinationCity}</p>
-        <p>{this.props.flightPrice} euro</p>
+      <div className="flight-item">
+        <div className="flight-prop">{this.props.departureTime}</div>
+        <div className="flight-prop">{this.props.arrivalTime}</div>
+        <div className="flight-prop">{this.props.originCity}</div>
+        <div className="flight-prop">{this.props.destinationCity}</div>
+        <div className="flight-prop">{this.props.flightPrice} euro</div>
       </div>
     );
   }
