@@ -24,6 +24,11 @@ b {
   color: red;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .small {
   width: 100%;
@@ -72,6 +77,15 @@ button {
   font-size: 1.5rem;
   font-weight: 200;
   border: none;
+}
+
+.searchbtn {
+  background-color: rgb(120, 236, 120);
+}
+
+.showmore {
+  background-color: rgb(120, 209, 236);
+  margin-bottom: 1rem;
 }
 
 select {

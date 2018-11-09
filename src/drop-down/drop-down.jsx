@@ -51,8 +51,10 @@ export default class DropDown extends React.Component {
                 </select>
                 <br /> 
                 <input type="checkbox" name="checkbox" id="direct_flights"/>direct flights only <br></br>
-                <button onClick={ this.props.showMore}>Show more</button>
-                <button onClick={this.action}>Search!</button>
+                <div className="buttons">
+                    <button class="showmore" Click={ this.props.showMore}>Show more</button>
+                    <button class="search" onClick={this.action}>Search!</button>
+                </div>
                 
             </div>
         )
