@@ -1,7 +1,7 @@
 import React from 'react';
 import { timingSafeEqual } from 'crypto';
 
-const destinations = ['Valencia', 'Barcelona', 'Madrid', 'Milan', 'Athens'];
+const destinations = ['Valencia', 'Barcelona', 'Madrid', 'Milan', 'Athens',  'Helsinki', 'Kittila', 'Stockholm'];
 const origins = ['Prague', 'Berlin', 'Warsaw', 'Pardubice'];
 
 export default class DropDown extends React.Component {

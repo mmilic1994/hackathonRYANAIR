@@ -34,9 +34,23 @@ export default class FlightList extends React.Component {
   render() {
     if (this.state.isLoading == true) {
       return (
+        <>
+       <DropDown />
+       <div className="flight_list">
+        <div className="flight-item">
+          <div className="flight-prop col-name">Departure time</div>
+          <div className="flight-prop col-name">Arrival time</div>
+          <div className="flight-prop col-name">Origin city</div>
+          <div className="flight-prop col-name">Destination city</div>
+          <div className="flight-prop col-name">Price</div>
+          <div className="flight-prop col-name">Stopovers</div>
+
+        </div>
         <div className="spinner-container">
           <img className="loading-spinner" src="https://www.flightcomp.de/wp-content/plugins/gravityforms/images/spinner.gif" />
         </div>
+      </div>
+      </>
       );
     }
     return (
