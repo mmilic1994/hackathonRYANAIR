@@ -4,6 +4,7 @@ import { timingSafeEqual } from 'crypto';
 const destinations = ['Valencia', 'Barcelona', 'Madrid', 'Milan', 'Athens'];
 const origins = ['Prague', 'Berlin', 'Warsaw', 'Pardubice'];
 
+
 export default class DropDown extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,9 @@ export default class DropDown extends React.Component {
         this.state = {
             origin: "Prague",
             destination: "London",
-            direct : 0
+            direct : 0,
+            flightsNumber: this.props.flightsNumber
+        
         };
     }
 
@@ -26,8 +29,6 @@ export default class DropDown extends React.Component {
             direct: (document.getElementById('direct_flights').checked ? 1 : 0)  
         });
     }
-
-
 
     render() {
         return (
@@ -49,7 +50,8 @@ export default class DropDown extends React.Component {
                 </select>
                 <br /> 
                 <input type="checkbox" name="checkbox" id="direct_flights"/>direct flights only <br></br>
-                <button onClick={this.action}>Search connections!</button>
+                <button onClick={this.action}>Search connections!</button> <br></br>
+                <button onClick={ this.props.showMore}>Show more</button>
                 
             </>
         )

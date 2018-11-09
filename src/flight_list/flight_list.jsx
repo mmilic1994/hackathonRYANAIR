@@ -9,7 +9,8 @@ export default class FlightList extends React.Component {
 
     this.state = {
       flights: [],
-      isLoading: false
+      isLoading: false,
+      flightsNumber: 5
     }
 
   }
@@ -30,6 +31,10 @@ export default class FlightList extends React.Component {
       }
       
   }
+
+  showMore = ()  => {
+    this.setState({flightsNumber: this.state.flightsNumber + 5});
+  }
   
   render() {
     if (this.state.isLoading == true) {
@@ -41,7 +46,7 @@ export default class FlightList extends React.Component {
     }
     return (
       <>
-       <DropDown action={this.selectedRoute} />
+       <DropDown action={this.selectedRoute} showMore={this.showMore}/>
        <div className="flight_list">
        <div className="flight-item">
         <div className="flight-prop col-name">Departure time</div>
@@ -50,7 +55,7 @@ export default class FlightList extends React.Component {
         <div className="flight-prop col-name">Destination city</div>
         <div className="flight-prop col-name">Price</div>
       </div>
-        { this.state.flights.map(
+        { this.state.flights.slice(0, this.state.flightsNumber).map(
           flight => <FlightItem
           departureTime = {
             DateTime.fromMillis(flight.dTime * 1000).toFormat('dd.MM.yyyy hh:mm')}
@@ -61,7 +66,7 @@ export default class FlightList extends React.Component {
           flightPrice = {flight.price}
           />
         )}
-
+          
        </div>
       </>
     )
