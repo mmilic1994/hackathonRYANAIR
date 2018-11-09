@@ -37,7 +37,7 @@ export default class DropDown extends React.Component {
                 <p>Departure City</p>
                 <select id="origin" className="origins">
                     { origins.map((origin, i)  => 
-                        <option value={origin} key={i}>{origin}</option>
+                        <option value={origin} key={i} selected={(origin == this.state.origin) ? true : false }>{origin}</option>
                     )
                     }   
 

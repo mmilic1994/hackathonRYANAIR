@@ -15,6 +15,15 @@ h1 {
   font-family: 'Indie Flower', cursive;
 }
 
+h3 {
+  text-align: center;
+  color: grey;
+}
+
+b {
+  color: red;
+}
+
 
 .small {
   width: 100%;
@@ -25,6 +34,7 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  transition: 1s;
 }
 
 .big {
@@ -36,6 +46,7 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  transition: 1s;
 }
 
 .title {

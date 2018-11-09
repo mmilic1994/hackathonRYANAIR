@@ -10,8 +10,10 @@ export default class FlightList extends React.Component {
     this.state = {
       flights: [],
       isLoading: false,
+      searched: "big",
+      origin: '',
+      destination: '',
       flightsNumber: 5,
-      searched: "big"
     }
 
   }
@@ -25,6 +27,8 @@ export default class FlightList extends React.Component {
         .then(json => {
           this.setState({
             flights: json.data,
+            origin: data.origin,
+            destination: data.destination,
             isLoading: false,
             searched: "small"
             
@@ -75,6 +79,7 @@ export default class FlightList extends React.Component {
           </div>
           <DropDown action={this.selectedRoute} showMore={this.showMore} />
         </header>
+        <h3>Displaying flights from {this.state.origin} to {this.state.destination}</h3>
 
         <div className="flight_list">
           <div className="flight-item">
