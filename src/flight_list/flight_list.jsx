@@ -50,6 +50,7 @@ export default class FlightList extends React.Component {
           originCity = {flight.cityFrom}
           destinationCity = {flight.cityTo}
           flightPrice = {flight.price}
+          
           />
         )}
 

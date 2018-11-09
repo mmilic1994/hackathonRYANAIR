@@ -16,16 +16,16 @@ export default class DropDown extends React.Component {
         return (
             <>
                 <select className="origins">
-                    { origins.forEach(origin => {
-                        <option value={origin}>{origin}</option>
-                    })
+                    { origins.map((origin, i)  => 
+                        <option key={i}>{origin}</option>
+                    )
                     }   
 
                 </select>
                 <select className="destinations">
-                    { destinations.forEach(destination => {
-                        <option value={destination}>{destination}</option>
-                    })
+                    { destinations.map((destination, i) =>
+                        <option key={i}>{destination}</option>
+                    )
                     }  
                 </select>
             </>
