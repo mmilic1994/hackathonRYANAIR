@@ -11,7 +11,7 @@ export default class FlightItem extends React.Component {
         <div className="flight-prop">{this.props.arrivalTime}</div>
         <div className="flight-prop">{this.props.originCity}</div>
         <div className="flight-prop">{this.props.destinationCity}</div>
-        <div className="flight-prop">{this.props.flightPrice} euro</div>
+        <div className="flight-prop">${this.props.flightPrice} <b>BARGAIN!</b></div>
         <div className="flight-prop">{this.props.stopOvers}</div>
 
       </div>
